@@ -1,21 +1,30 @@
 class Solution {
-//Define transform function 
+
+//Define transform function
+//
     private String transformString(String s) {
-    
-    // 
         Map<Character, Integer> indexMapping = new HashMap<>();
         StringBuilder builder = new StringBuilder();
         
+        
+    //loop         
         for (int i = 0; i < s.length(); ++i) {
             char c1 = s.charAt(i);
+           
+           //within loop, check if character at current index exists, if so, then put (key, value)
             
             if (!indexMapping.containsKey(c1)) {
                 indexMapping.put(c1, i);
             }
             
+            //within loop, not a repeat key/value pair, append mapping + add space at the end to elimiate confusion with digits
+            
             builder.append(Integer.toString(indexMapping.get(c1)));
             builder.append(" ");
         }
+        
+    //return         
+        
         return builder.toString();
     }
     
